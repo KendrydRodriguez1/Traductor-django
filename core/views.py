@@ -11,7 +11,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
-from core.utils import generate_unique_username
+from core.utils.utils import generate_unique_username
 
 
 
