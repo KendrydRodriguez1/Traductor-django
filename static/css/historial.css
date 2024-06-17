@@ -1,6 +1,25 @@
 /*----------------------------------------diseño de historial-------------------------------------------*/
-#boton3{
+
+#clear{
+    margin-top: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 50%;
+    padding: 10px 20px;
+    background-color: red; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    font-size: 16px; /* Tamaño del texto */    
+}
+
+#boton3,#boton4,#noclear{
         margin-top: 10px;
+        margin-right: 10px;
         display: inline-block;
         width: 50%;
         padding: 10px 20px;
@@ -10,12 +29,19 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        text-align: center;
         transition: background-color 0.3s ease; /* Transición suave del color de fondo */
         font-size: 16px; /* Tamaño del texto */
-    }
+}
 
-#boton3:hover {
+#boton3:hover,#boton4:hover {
         background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el mouse */
+}
+
+.botones2 {
+    display: flex;
+    justify-content: space-between; /* Esto distribuirá los botones horizontalmente */
+    margin-top: 20px
 }
 
 
@@ -29,6 +55,10 @@
     margin: 20px auto;
     padding: 20px;
     border: 1px solid black;
+}
+
+#botondelete{
+    margin-left: 10px;
 }
 
 .timestamp {

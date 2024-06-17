@@ -141,7 +141,7 @@ MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = "core.User"
 LOGIN_REDIRECT_URL = '/inicio/'
-LOGIN_URL = ''
+LOGIN_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 

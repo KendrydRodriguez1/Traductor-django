@@ -2,11 +2,14 @@
 {% block content %}
         {% load static %}
         <div id="container2" class="container">
-            <p style="text-align: right;">0:30</p>
-            <img class="camera" src="{% static 'img/sinv.jpg' %}" alt="Cámara simulada" >
+            <div class="container-capture">
+                <video id="video" width="640" height="480" autoplay></video>
+                <canvas id="canvas" width="640" height="480"></canvas>
+            </div>
             <div class="botones">
-            <button id="boton1" class="envio" type="submit">Iniciar</button>
-            <button id="boton1" class="envio" type="submit">Limpiar</button>
+            <button id="start" class="envio" type="submit">Iniciar</button>
+            <button id="boton1" style="display: none;" class="envio" type="submit">Capturar</button>
+            <button id="clean" class="envio" type="submit">Limpiar</button>
             </div>
             <form>
                 <div class="form-group">
@@ -19,4 +22,7 @@
 
             </form>
         </div>
+        <script src="/static/js/fetch.js"></script>
+        <script src="/static/js/captura.js"></script>
+        <script src="/static/js/save_word.js"></script>
 {% endblock %}
