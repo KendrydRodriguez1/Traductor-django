@@ -1,0 +1,26 @@
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from core.utils.text_to_speech import text_to_speech
+import json
+
+@login_required
+def mostrar_html(request):
+    return render(request, 'home.html', {
+        'user': request.user,
+    })
+
+@csrf_exempt
+def text_speech(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        text = data.get('text', '')
+
+        if text:
+            text_to_speech(text)
+            return JsonResponse({"message": "Text spoken successfully"})
+        else:
+            return JsonResponse({"error": "No text provided"}, status=400)
+
+    return JsonResponse({"error": "Invalid request"}, status=400)

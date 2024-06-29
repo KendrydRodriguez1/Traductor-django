@@ -22,10 +22,10 @@
                     <img src="{{user.get_image_url}}" alt="Imagen de perfil">
                 </div>
                 <span class="link-create"> {{user.username}}</span>
-                <a href="{% url 'inicio' %}" class="link-create">  Traductor </a>
-                <a href="{% url 'historial' %}" class="link-create">  Mi Historial</a>
-                <a href="{% url 'editar' %}" class="link-create">  Editar Perfil</a>
-                <a href="{% url 'salir' %}" class="link-create">  Cerrar Sesion</a>
+                <a href="{% url 'core:inicio' %}" class="link-create">  Traductor </a>
+                <a href="{% url 'core:historial' %}" class="link-create">  Mi Historial</a>
+                <a href="{% url 'core:editar' %}" class="link-create">  Editar Perfil</a>
+                <a href="{% url 'core:salir' %}" class="link-create">  Cerrar Sesion</a>
             </div>
         </nav>
         {% else %}

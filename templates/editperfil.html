@@ -27,6 +27,11 @@
         <div>
             <label for="id_current_password">Contraseña Actual:</label>
             <input type="password" id="id_current_password" name="current_password">
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
         </div>
         <div>
             <label for="id_new_password">Nueva Contraseña:</label>

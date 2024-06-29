@@ -5,7 +5,7 @@
     <div id="container1" class="container">
         {{error}}
         <h2>Creacion de cuenta</h2> 
-        <form method="post" action="{% url 'registrar' %}">
+        <form method="post" action="{% url 'core:registrar' %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="email">Nombres:</label>
