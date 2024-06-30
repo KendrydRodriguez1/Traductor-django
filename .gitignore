@@ -1,2 +1,3 @@
 /Entorno
 *.pyc
+/frame_actions/*/
