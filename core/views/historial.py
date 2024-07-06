@@ -32,7 +32,7 @@ class list_historial(LoginRequiredMixin,ListView):
             query &= Q(word__icontains=palabra)
         
         return queryset.filter(query).order_by('id')
-    
+
 def historial_delete(request, pk):
     palabra = get_object_or_404(Historial, pk=pk)
 
