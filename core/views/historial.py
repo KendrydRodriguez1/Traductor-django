@@ -13,6 +13,7 @@ from django.http import HttpResponseForbidden,HttpResponseRedirect
 from core.models import Historial
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 class list_historial(LoginRequiredMixin,ListView):
@@ -32,7 +33,8 @@ class list_historial(LoginRequiredMixin,ListView):
             query &= Q(word__icontains=palabra)
         
         return queryset.filter(query).order_by('id')
-
+        
+@login_required
 def historial_delete(request, pk):
     palabra = get_object_or_404(Historial, pk=pk)
 
@@ -42,9 +44,10 @@ def historial_delete(request, pk):
     palabra.delete()
     return redirect('core:historial')
 
-class clear_historial(View):
+class clear_historial(LoginRequiredMixin, View):
     template_name = 'clean_historial.html'
     success_url = reverse_lazy('core:historial')
+    login_url = '/'
 
     def get(self, request, *args, **kwargs):
         context = {
@@ -60,7 +63,7 @@ class clear_historial(View):
         return HttpResponseRedirect(self.success_url)
     
 
-
+@login_required
 @csrf_exempt
 def save_word(request):
     if request.method == 'POST':
@@ -80,5 +83,5 @@ def save_word(request):
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
     
-    return JsonResponse({'error': 'Método no permitido.'}, status=405)
+    return redirect('core:inicio')
     

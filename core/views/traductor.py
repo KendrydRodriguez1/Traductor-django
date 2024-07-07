@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from core.utils.text_to_speech import text_to_speech
 import json
+from django.shortcuts import redirect
 
 @login_required
 def mostrar_html(request):
@@ -19,8 +20,8 @@ def text_speech(request):
 
         if text:
             text_to_speech(text)
-            return JsonResponse({"message": "Text spoken successfully"})
+            return JsonResponse({"message": "Exito"})
         else:
-            return JsonResponse({"error": "No text provided"}, status=400)
+            return JsonResponse({"error": "No hay texto"}, status=400)
 
-    return JsonResponse({"error": "Invalid request"}, status=400)
+    return redirect('core:inicio')

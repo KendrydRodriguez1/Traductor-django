@@ -6,11 +6,11 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="profile-picture" style="margin-bottom: 20px; margin-top: 20px; text-align: center;">
-                <img src="{{ user.get_image_url }}" alt="Imagen de perfil" >
+                <img src="{{ user.get_image_url }}" alt="Imagen de perfil" id="imgperfil">
         </div>
         <div>
             <label for="id_image">Imagen:</label>
-            <input type="file" id="id_image" name="image" value="">
+            <input type="file" id="id_image" name="image" value="" onchange="temporalimg(event)">
         </div>
         <div>
             <label for="id_first_name">Nombre:</label>
@@ -42,5 +42,5 @@
         </div>
     </form>
     </div>
-
+    <script src="/static/js/imgtemporal.js"></script>
  {% endblock %}
