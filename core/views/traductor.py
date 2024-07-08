@@ -12,7 +12,7 @@ def mostrar_html(request):
         'user': request.user,
     })
 
-@csrf_exempt
+@login_required
 def text_speech(request):
     if request.method == 'POST':
         data = json.loads(request.body)

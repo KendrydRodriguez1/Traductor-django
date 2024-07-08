@@ -64,7 +64,6 @@ class clear_historial(LoginRequiredMixin, View):
     
 
 @login_required
-@csrf_exempt
 def save_word(request):
     if request.method == 'POST':
         try:
